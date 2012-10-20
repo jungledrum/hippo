@@ -1,0 +1,26 @@
+<%= render "bookmark" %>
+
+<% unless @user.blank? %>
+  Hello,<%= @user.screen_name %>
+  <%= link_to "退出", logout_user_index_path %>
+<% else %>
+  <a href="<%= connect_user_index_path %>">微博登录</a>
+<% end %>
+
+
+<table>
+  <% last = nil %>
+  <% @articles.each do |x| %>
+  <tr>
+    <td>
+      <% unless x.created_at.to_date == last %>
+      <%= x.created_at.to_date %>
+      <% end %>
+      <% last = x.created_at.to_date %>
+    </td>
+    <td><a href="<%= x.url %>" title="<%= x.title %>" target="_blank"><%= x.title[0...30] %></a></td>
+  </tr>
+  <% end %>
+</table>
+
+

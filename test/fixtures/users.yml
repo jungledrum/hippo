@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  weiboid: 1
+  name: MyString
+  last_login_time: 2012-10-18 15:27:35
+  login_num: 1
+
+two:
+  weiboid: 1
+  name: MyString
+  last_login_time: 2012-10-18 15:27:35
+  login_num: 1
