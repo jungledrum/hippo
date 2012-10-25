@@ -38,3 +38,11 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'weibo_2'
+
+gem "ruby-readability", :require => 'readability'
+
+gem "delayed_job", "~> 3.0.3"
+gem 'delayed_job_active_record'
+gem 'daemons'
+
+gem "nokogiri", "~> 1.5.5"

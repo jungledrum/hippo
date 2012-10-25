@@ -19,6 +19,11 @@
       <% last = x.created_at.to_date %>
     </td>
     <td><a href="<%= x.url %>" title="<%= x.title %>" target="_blank"><%= x.title[0...30] %></a></td>
+    <td><%=link_to "文字", article_path(x) %></td>
+    <td>
+      <%=link_to "删除", article_path(x), :method=>"DELETE", 
+      :remote=>"true", :name=>"delete_article" %>
+    </td>
   </tr>
   <% end %>
 </table>

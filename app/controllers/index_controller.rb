@@ -1,9 +1,10 @@
 
 class IndexController < ApplicationController
+
    before_filter :login?
 
   def index
-    @articles = Article.where("weiboid = ?", session[:uid]).order("created_at DESC")
+    @articles = Article.where("weiboid = ?", session[:uid]).order("created_at DESC")  
 
     if session[:uid]
       @user = @client.users.show_by_uid(session[:uid]) 
@@ -18,6 +19,7 @@ class IndexController < ApplicationController
     uid = session[:uid]
 
     article = Article.create(:url=>url, :title=>title, :weiboid=>uid)
+    Delayed::Job.enqueue CrawlJob.new(article.id)
 
     render :formats => :js
   end

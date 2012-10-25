@@ -11,4 +11,8 @@ Hippo::Application.routes.draw do
       get 'logout'
     end
   end
+
+  resources :article, do
+    
+  end
 end
